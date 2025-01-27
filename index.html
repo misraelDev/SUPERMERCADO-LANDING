@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperFácil - Tu Supermercado de Confianza</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #61d4b0;
+            --color-secondary: #8ee696;
+            --color-accent: #baf77c;
+            --color-highlight: #e8ff65;
+            --color-light: #f2f2ef;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-light);
+        }
+
+        .navbar {
+            background-color: transparent;
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .navbar.scrolled {
+            background-color: var(--color-primary);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-link {
+            color: #2c3e50 !important;
+            font-weight: 500;
+            margin: 0 10px;
+        }
+
+        .nav-link:hover {
+            color: var(--color-primary) !important;
+        }
+
+        .btn-custom {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border: none;
+            color: rgb(2, 67, 37);
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(97, 212, 176, 0.4);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            padding: 160px 0 120px;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .hero-text {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            border: none;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(97, 212, 176, 0.2);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .category-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .category-card {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 20px;
+            color: white;
+        }
+
+        .testimonial-section {
+            background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+            padding: 80px 0;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem;
+        }
+
+        .app-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .app-features {
+            background: var(--color-light);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .contact-section {
+            background: var(--color-light);
+            padding: 80px 0;
+        }
+
+        .contact-info {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .offers-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, white, var(--color-light));
+        }
+
+        .offer-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .subscription-section {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            padding: 60px 0;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-dark fw-bold" href="#">SuperFácil</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#productos">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ofertas">Ofertas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ubicaciones">Ubicaciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-custom ms-3" href="#pedido">Hacer Pedido</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-3 fw-bold text-white mb-4 hero-text">Productos frescos a tu puerta</h1>
+            <p class="lead text-white mb-5 hero-text">Tu supermercado de confianza ahora con entrega a domicilio</p>
+            <a href="#pedido" class="btn btn-custom btn-lg px-5 py-3 shadow-lg">Comprar Ahora</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5" id="caracteristicas">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">¿Por qué elegirnos?</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.333L19.333 8 12 11.667 4.667 8 12 4.333zM4 9.744v6.512L11.333 20V13.488L4 9.744zm16 0l-7.333 3.744V20L20 16.256V9.744z"/>
+                            </svg>
+                        </div>
+                        <div class="text-center">
+                            <h4 class="mb-3 fw-bold">Productos Frescos</h4>
+                            <p class="text-muted">Seleccionamos los mejores productos del día para ti</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.85 0-1.6-.43-2.04-1.08-.45.65-1.2 1.08-2.04 1.08-.85 0-1.6-.43-2.04-1.08-.45.65-1.2 1.08-2.04 1.08-1.38 0-2.5-1.12-2.5-2.5h2c0 .28.22.5.5.5s.5-.22.5-.5h2c0 .28.22.5.5.5s.5-.22.5-.5h2c0 .28.22.5.5.5s.5-.22.5-.5h2c0 1.38-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <div class="text-center">
+                            <h4 class="mb-3 fw-bold">Entrega Rápida</h4>
+                            <p class="text-muted">Recibe tus compras en menos de 2 horas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                        </div>
+                        <div class="text-center">
+                            <h4 class="mb-3 fw-bold">Precios Justos</h4>
+                            <p class="text-muted">Los mejores precios del mercado garantizados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="category-section" id="categorias">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Nuestras Categorías</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="/api/placeholder/400/200" alt="Frutas y Verduras">
+                        <div class="category-overlay">
+                            <h4>Frutas y Verduras</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="/api/placeholder/400/200" alt="Carnicería">
+                        <div class="category-overlay">
+                            <h4>Carnicería</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="/api/placeholder/400/200" alt="Panadería">
+                        <div class="category-overlay">
+                            <h4>Panadería</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section class="offers-section" id="ofertas">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">Ofertas de la Semana</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="offer-card">
+                        <img src="/api/placeholder/300/200" alt="Oferta 1" class="w-100">
+                        <div class="p-3">
+                            <h5>2x1 en Frutas</h5>
+                            <p class="text-muted mb-2">Válido hasta el 31/01</p>
+                            <button class="btn btn-custom w-100">Ver Oferta</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="offer-card">
+                        <img src="/api/placeholder/300/200" alt="Oferta 2" class="w-100">
+                        <div class="p-3">
+                            <h5>30% en Lácteos</h5>
+                            <p class="text-muted mb-2">Válido hasta el 31/01</p>
+                            <button class="btn btn-custom w-100">Ver Oferta</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="offer-card">
+                        <img src="/api/placeholder/300/200" alt="Oferta 3" class="w-100">
+                        <div class="p-3">
+                            <h5>Descuento en Carnes</h5>
+                            <p class="text-muted mb-2">Válido hasta el 31/01</p>
+                            <button class="btn btn-custom w-100">Ver Oferta</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="offer-card">
+                        <img src="/api/placeholder/300/200" alt="Oferta</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonial-section">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5 text-white">Lo que dicen nuestros clientes</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="/api/placeholder/50/50" alt="Cliente" class="rounded-circle me-3">
+                            <div>
+                                <h5 class="mb-0">María García</h5>
+                                <small class="text-muted">Cliente frecuente</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">"Los productos siempre llegan frescos y a tiempo. El servicio al cliente es excelente."</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="/api/placeholder/50/50" alt="Cliente" class="rounded-circle me-3">
+                            <div>
+                                <h5 class="mb-0">Juan Pérez</h5>
+                                <small class="text-muted">Cliente nuevo</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">"Me encanta la variedad de productos orgánicos y los precios son muy competitivos."</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="/api/placeholder/50/50" alt="Cliente" class="rounded-circle me-3">
+                            <div>
+                                <h5 class="mb-0">Ana Martínez</h5>
+                                <small class="text-muted">Cliente premium</small>
+                            </div>
+                        </div>
+                        <p class="mb-0">"La app es muy fácil de usar y las entregas son siempre puntuales."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Section -->
+    <section class="app-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="fw-bold mb-4">Descarga nuestra app</h2>
+                    <div class="app-features mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="feature-icon me-3" style="width: 40px; height: 40px;">
+                                <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">Pedidos fáciles</h5>
+                                <small class="text-muted">Compra con solo unos clicks</small>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="feature-icon me-3" style="width: 40px; height: 40px;">
+                                <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">Seguimiento en tiempo real</h5>
+                                <small class="text-muted">Monitorea tus entregas</small>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="feature-icon me-3" style="width: 40px; height: 40px;">
+                                <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">Ofertas exclusivas</h5>
+                                <small class="text-muted">Descuentos solo para usuarios de la app</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-dark px-4">
+                            <small class="d-block">Descarga en</small>
+                            App Store
+                        </button>
+                        <button class="btn btn-dark px-4">
+                            <small class="d-block">Disponible en</small>
+                            Google Play
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="/api/placeholder/500/600" alt="App MockUp" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscription Section -->
+    <section class="subscription-section">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-4">Suscríbete a nuestro boletín</h2>
+            <p class="mb-4">Recibe ofertas exclusivas y noticias directamente en tu correo</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Tu correo electrónico">
+                        <button class="btn btn-dark" type="button">Suscribirse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contacto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="fw-bold mb-4">Contáctanos</h2>
+                    <div class="contact-info mb-4">
+                        <h5 class="mb-3">Información de contacto</h5>
+                        <p class="mb-2"><strong>Teléfono:</strong> (123) 456-7890</p>
+                        <p class="mb-2"><strong>Email:</strong> info@superfacil.com</p>
+                        <p class="mb-2"><strong>Dirección:</strong> Calle Principal 123, Ciudad</p>
+                        <p class="mb-0"><strong>Horario:</strong> Lunes a Domingo 8:00 - 22:00</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="contact-form bg-white p-4 rounded-3">
+                        <h5 class="mb-3">Envíanos un mensaje</h5>
+                        <form>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Nombre">
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="4" placeholder="Mensaje"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-custom w-100">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">SuperFácil</h5>
+                    <p>Tu supermercado de confianza con los mejores productos y servicios.</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Inicio</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Productos</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Ofertas</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Ubicaciones</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Atención al Cliente</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Preguntas Frecuentes</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Política de Devolución</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Términos y Condiciones</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Síguenos</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white text-decoration-none">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-white text-decoration-none">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-white text-decoration-none">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-7.816zm4.594 4.594c0 .758-.613 1.371-1.371 1.371s-1.371-.613-1.371-1.371.613-1.371 1.371-1.371 1.371.613 1.371 1.371z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <h6 class="fw-bold mb-3">Métodos de Pago</h6>
+                        <div class="d-flex gap-2">
+                            <img src="/api/placeholder/40/25" alt="Visa" class="rounded">
+                            <img src="/api/placeholder/40/25" alt="Mastercard" class="rounded">
+                            <img src="/api/placeholder/40/25" alt="American Express" class="rounded">
+                            <img src="/api/placeholder/40/25" alt="PayPal" class="rounded">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-light my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 SuperFácil. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small>Diseñado con ❤️ para nuestros clientes</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('scrolled');
+            } else {
+                document.querySelector('.navbar').classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission prevention (demo purposes)
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Formulario enviado con éxito (demo)');
+                form.reset();
+            });
+        });
+    </script>
+</body>
+</html>
