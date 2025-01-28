@@ -21,11 +21,26 @@
             background-color: var(--color-light);
         }
 
-        .navbar {
-            background-color: #8ee696;
-            transition: all 0.3s ease;
-            padding: 1rem 0;
-        }
+        /* Estilo general para el navbar (aplicado a todos los tamaños) */
+.navbar {
+    transition: all 0.3s ease;
+    padding: 1rem 0;
+}
+
+/* Para vistas de escritorio (pantallas más anchas) */
+@media (min-width: 768px) {
+    .navbar {
+        background-color: transparent; /* Fondo transparente */
+    }
+}
+
+/* Para dispositivos móviles (pantallas más pequeñas) */
+@media (max-width: 767px) {
+    .navbar {
+        background-color: #61d4b0; /* Color verde */
+    }
+}
+
 
         .navbar.scrolled {
             background-color: var(--color-primary);
