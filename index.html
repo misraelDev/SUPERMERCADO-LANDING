@@ -908,19 +908,27 @@
     <footer>
         <div class="container">
             <div class="row">
+                <!-- Columna 1: Información de la empresa -->
                 <div class="col-md-3 mb-4">
                     <h5 class="fw-bold mb-3">SuperFacil</h5>
                     <p>Tu supermercado de confianza, con los mejores productos y servicios para ti.</p>
                 </div>
+    
+                <!-- Columna 2: Enlaces rápidos -->
                 <div class="col-md-3 mb-4">
                     <h5 class="fw-bold mb-3">Enlaces rápidos</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Inicio</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Productos</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Ofertas</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Ubicaciones</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none" onclick="scrollToTop()">Inicio</a></li>
+                        <li class="mb-2"><a href="#caracteristicas" class="text-white text-decoration-none">Características</a></li>
+                        <li class="mb-2"><a href="#categorias" class="text-white text-decoration-none">Categorías</a></li>
+                        <li class="mb-2"><a href="#ofertas" class="text-white text-decoration-none">Ofertas</a></li>
+                        <li class="mb-2"><a href="#descarga" class="text-white text-decoration-none">Descarga SuperFacil</a></li>
+                        <li class="mb-2"><a href="#contacto" class="text-white text-decoration-none">Contacto</a></li>
+                        <li class="mb-2"><a href="#pedido" class="text-white text-decoration-none">Hacer pedido</a></li>
                     </ul>
                 </div>
+    
+                <!-- Columna 3: Atención al cliente -->
                 <div class="col-md-3 mb-4">
                     <h5 class="fw-bold mb-3">Atención al cliente</h5>
                     <ul class="list-unstyled">
@@ -930,11 +938,20 @@
                         <li class="mb-2"><a href="#" class="text-white text-decoration-none">Política de privacidad</a></li>
                     </ul>
                 </div>
+    
+                <!-- Columna 4: Redes sociales y métodos de pago -->
                 <div class="col-md-3 mb-4">
                     <h5 class="fw-bold mb-3">Síguenos</h5>
                     <div class="d-flex gap-3">
                         <a href="#" class="text-white text-decoration-none">
-                            <!-- Redes sociales SVG -->
+                            <!-- Icono de redes sociales (SVG o ícono) -->
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-white text-decoration-none">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white text-decoration-none">
+                            <i class="fab fa-instagram"></i>
                         </a>
                     </div>
                     <div class="mt-4">
@@ -945,9 +962,11 @@
                             <img src="svg/ax.svg" alt="American Express" class="icon" title="American Express">
                             <img src="svg/p.svg" alt="PayPal" class="icon" title="PayPal">
                         </div>
-                    </div>                    
+                    </div>
                 </div>
             </div>
+    
+            <!-- Línea divisoria y derechos de autor -->
             <hr class="border-light my-4">
             <div class="row">
                 <div class="col-md-6">
@@ -1025,6 +1044,13 @@
 };
 
     </script>
+
+<script>
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
 </body>
 
 </html>
